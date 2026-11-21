@@ -1,0 +1,384 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #06050A;
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+.gradientOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+
+  // &.orb1 {
+  //   width: 700px;
+  //   height: 700px;
+  //   background: #2E2860;
+  //   top: -25%;
+  //   right: -12%;
+  //   animation: orbFloat1 12s ease-in-out infinite;
+  // }
+
+  // &.orb2 {
+  //   width: 550px;
+  //   height: 550px;
+  //   background: #2E2860;
+  //   bottom: -20%;
+  //   left: -8%;
+  //   animation: orbFloat2 14s ease-in-out infinite;
+  // }
+
+  // &.orb3 {
+  //   width: 350px;
+  //   height: 350px;
+  //   background: #2E2860;
+  //   top: 40%;
+  //   left: 32%;
+  //   animation: orbFloat1 9s ease-in-out infinite reverse;
+  // }
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(35px, -35px) scale(1.06); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 25px) scale(1.08); }
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.greeting {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(108, 98, 255, 0.35);
+  border: 1px solid rgba(108, 98, 255, 0.35);
+  color: #6C62FF;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: #6C62FF;
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.name {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+  color: #F4F2FF;
+
+  .accent {
+    color: #6C62FF;
+  }
+}
+
+.companyBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(108, 98, 255, 0.35);
+  border: 1px solid rgba(108, 98, 255, 0.35);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.02em;
+
+  i {
+    font-size: 0.9rem;
+  }
+}
+
+.roleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.typingText {
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  font-weight: 600;
+  color: #6C62FF;
+  font-family: 'Fira Code', monospace;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.35em;
+  background: #6C62FF;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.description {
+  font-size: 1rem;
+  color: #A9A4C4;
+  line-height: 1.85;
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 3rem;
+}
+
+.statBar {
+  display: flex;
+  gap: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #2E2860;
+  flex-wrap: wrap;
+}
+
+.stat {
+  .statValue {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #F4F2FF;
+    line-height: 1;
+
+    span {
+      color: #6C62FF;
+    }
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+    color: #A9A4C4;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 5px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageRing {
+  position: relative;
+  width: 400px;
+  height: 400px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: #6C62FF;
+    z-index: -1;
+    animation: spinRing 10s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #06050A;
+    z-index: -1;
+    margin: 5px;
+  }
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.profilePlaceholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(108, 98, 255,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(108, 98, 255, 0.12);
+  gap: 12px;
+
+  i {
+    font-size: 5.5rem;
+    color: rgba(108, 98, 255, 0.45);
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: #A9A4C4;
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+.floatingBadge {
+  position: absolute;
+  background: rgba(108, 98, 255, 0.4);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(108, 98, 255, 0.35);
+  border-radius: 14px;
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: none;
+  opacity: 0.92;
+
+  &.badge1 {
+    top: 4%;
+    right: -4%;
+  }
+
+  &.badge2 {
+    bottom: 12%;
+    left: -8%;
+  }
+
+  .badgeIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .badgeText {
+    .badgeTitle {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #F4F2FF;
+      line-height: 1.2;
+    }
+    .badgeSub {
+      font-size: 0.7rem;
+      color: #A9A4C4;
+    }
+  }
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #A9A4C4;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 2;
+
+  .scrollLine {
+    width: 1px;
+    height: 48px;
+    background: #6C62FF;
+    animation: scrollAnim 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes scrollAnim {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.35; transform: scaleY(0.65); }
+}
+
+@media (max-width: 1200px) {
+  .imageRing {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 992px) {
+  .imageRing {
+    width: 290px;
+    height: 290px;
+  }
+  .badge1, .badge2 {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+  }
+  .imageRing {
+    width: 250px;
+    height: 250px;
+    margin-top: 2.5rem;
+  }
+  .ctaGroup {
+    justify-content: center;
+  }
+  .statBar {
+    justify-content: center;
+    gap: 1.8rem;
+  }
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .companyBadge {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+  }
+}
